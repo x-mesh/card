@@ -6,6 +6,7 @@
 //   card render --config <file> --all --out-dir <dir>
 //   card render ... --check       exit 1 when the file on disk is stale
 //   card render ... --offline     no network; errors on any measured field
+//   card serve --config <file>    compare the templates in a browser
 
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
@@ -17,6 +18,7 @@ const USAGE = `card — render an architecture card as SVG
   card list
   card render --config <file> [--template <name> --out <file>]
               [--all --out-dir <dir>] [--check] [--offline]
+  card serve  --config <file> [--port <n>]
 
   --config <file>    card config (required for render)
   --template <name>  ${Object.keys(TEMPLATES).join(" | ")}
@@ -25,6 +27,7 @@ const USAGE = `card — render an architecture card as SVG
   --out-dir <dir>    directory for --all (default: ./out)
   --check            exit 1 if the file on disk differs from what would be written
   --offline          skip the GitHub API; errors on any measured field
+  --port <n>         preview port (default 8787)
 
 GITHUB_TOKEN is optional. Without it the unauthenticated rate limit applies.
 `;
@@ -85,6 +88,13 @@ if (cmd === "list") {
   process.exit(0);
 }
 
+if (cmd === "serve") {
+  if (!flags.config) fail("--config is required");
+  const { serve } = await import("../lib/serve.mjs");
+  await serve({ config: flags.config, port: Number(flags.port ?? 8787) });
+  // The server owns the process from here.
+} else {
+
 if (cmd !== "render") fail(`unknown command "${cmd}"\n\n${USAGE}`);
 if (!flags.config) fail("--config is required");
 if (!flags.all && !flags.template) fail("--template or --all is required");
@@ -107,3 +117,4 @@ try {
 }
 
 process.exit(ok ? 0 : 1);
+}

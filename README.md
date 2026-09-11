@@ -20,6 +20,7 @@ request to a service that might be down.
 
 ```bash
 npx @x-mesh/card render --config examples/x-mesh.json --template terminal --out layers.svg
+npx @x-mesh/card serve  --config examples/x-mesh.json     # compare all seven
 ```
 
 ## Templates
@@ -91,6 +92,7 @@ organization stops the render instead of quietly disappearing from the picture.
 card list
 card render --config <file> [--template <name> --out <file>]
             [--all --out-dir <dir>] [--check] [--offline]
+card serve  --config <file> [--port <n>]
 ```
 
 | Flag | Effect |
@@ -98,6 +100,7 @@ card render --config <file> [--template <name> --out <file>]
 | `--all` | render every template into `--out-dir` (default `./out`) |
 | `--check` | exit 1 when the file on disk differs from what would be written |
 | `--offline` | skip the GitHub API; error on any measured field |
+| `--port` | preview port, default 8787 |
 
 `GITHUB_TOKEN` is optional. Without it the unauthenticated rate limit applies.
 
@@ -126,8 +129,12 @@ outage mode on your front page. `github-readme-stats` reached 80k stars proving
 this the hard way, and now [recommends the Actions route](https://github.com/anuraghazra/github-readme-stats#deploy-on-your-own-recommended)
 over its own public instance.
 
-A preview server is a different question, and a good one. That is what
-`--all` is for today.
+A preview server is a different question, and a good one. `card serve` is that:
+every template on one page, the config re-read on each request, and a
+**re-measure** button for when you want to pay for the API call. It renders each
+template separately, so one that cannot lay out prints why in its own frame
+instead of leaving a broken image and putting the reason in a terminal nobody is
+watching. Preview here, commit the file there.
 
 ## Design notes
 
@@ -152,8 +159,8 @@ A preview server is a different question, and a good one. That is what
   substantially wider than Helvetica can still overflow.
 - `terminal` is dark only. It reads on both GitHub themes, but that is a choice
   and not a default.
-- There is no preview server yet. `--all` renders the set so you can compare
-  them side by side, which is what picking a template actually needs.
+- `card serve` is local only, and meant to stay that way. It is for choosing a
+  template, not for serving one into a README.
 
 ## License
 
