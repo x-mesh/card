@@ -75,12 +75,13 @@
         "aic",
         "edc",
         "httprove",
-        "dbops"
+        "dbops",
+        "x-backup"
       ],
       "owns": "what broke after it shipped",
       "wired": "standalone · none calls another",
       "lead": "What broke after it shipped.",
-      "body": "Diagnosis is read-only and stops at the fault. Anything that writes makes you type the target's name first."
+      "body": "Diagnosis is read-only and stops at the fault. Anything that writes needs an explicit flag, and offers a dry run first."
     }
   ],
   "diagram": {
@@ -168,6 +169,15 @@
         "layer": "operations",
         "at": [
           0.84,
+          1.55
+        ],
+        "compact": true
+      },
+      {
+        "id": "x-backup",
+        "layer": "operations",
+        "at": [
+          1.26,
           1.55
         ],
         "compact": true

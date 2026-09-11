@@ -34,6 +34,9 @@
   <rect x="456.44" y="400.5" width="125.4" height="65.28" rx="10" fill="#ffffff" stroke="#d1d9e0" stroke-width="1.6"/>
   <rect x="456.44" y="414.5" width="4" height="37.28" rx="2" fill="#57606a"/>
   <text x="476.44" y="436.5" fill="#1f2328" font-family="ui-monospace,SFMono-Regular,&quot;SF Mono&quot;,Menlo,Consolas,&quot;Liberation Mono&quot;,monospace" font-size="23" font-weight="600" xml:space="preserve">dbops</text>
+  <rect x="662.66" y="400.5" width="125.4" height="65.28" rx="10" fill="#ffffff" stroke="#d1d9e0" stroke-width="1.6"/>
+  <rect x="662.66" y="414.5" width="4" height="37.28" rx="2" fill="#57606a"/>
+  <text x="682.66" y="436.5" fill="#1f2328" font-family="ui-monospace,SFMono-Regular,&quot;SF Mono&quot;,Menlo,Consolas,&quot;Liberation Mono&quot;,monospace" font-size="23" font-weight="600" xml:space="preserve">x-backup</text>
   <path d="M374,76 L527,76" fill="none" stroke="#1f2328" stroke-width="1.6" marker-end="url(#ac)" marker-start="url(#acs)"/>
   <rect x="376.64" y="51" width="147.72" height="17" fill="#ffffff"/>
   <text x="450.5" y="64" fill="#1f2328" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="13" text-anchor="middle" xml:space="preserve">telemetry contract</text>

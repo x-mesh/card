@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="686" viewBox="0 0 1400 686" role="img" aria-label="x-mesh — layers — editorial">
-  <rect x="0" y="0" width="1400" height="690" fill="#faf9f7"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="710" viewBox="0 0 1400 710" role="img" aria-label="x-mesh — layers — editorial">
+  <rect x="0" y="0" width="1400" height="714" fill="#faf9f7"/>
   <text x="72" y="66" fill="#1f2328" font-family="ui-monospace,SFMono-Regular,&quot;SF Mono&quot;,Menlo,Consolas,&quot;Liberation Mono&quot;,monospace" font-size="15" font-weight="700" letter-spacing="3.4" xml:space="preserve">THE LAYERS</text>
   <text x="1190.62" y="66" fill="#6b6557" font-family="ui-monospace,SFMono-Regular,&quot;SF Mono&quot;,Menlo,Consolas,&quot;Liberation Mono&quot;,monospace" font-size="13.5" xml:space="preserve">5, kept separate</text>
   <line x1="72" y1="80" x2="1328" y2="80" stroke="#1f2328" stroke-width="1.5"/>
@@ -31,10 +31,11 @@
   <line x1="72" y1="524" x2="1328" y2="524" stroke="#e3e0d8" stroke-width="1"/>
   <text x="72" y="546" fill="#b9b3a3" font-family="ui-monospace,SFMono-Regular,&quot;SF Mono&quot;,Menlo,Consolas,&quot;Liberation Mono&quot;,monospace" font-size="14" xml:space="preserve">05</text>
   <text x="156" y="550" fill="#1f2328" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="31" letter-spacing="-0.5" xml:space="preserve">operations</text>
-  <text x="156" y="580" fill="#6b6557" font-family="ui-monospace,SFMono-Regular,&quot;SF Mono&quot;,Menlo,Consolas,&quot;Liberation Mono&quot;,monospace" font-size="16" xml:space="preserve">aic · edc · httprove · dbops</text>
+  <text x="156" y="580" fill="#6b6557" font-family="ui-monospace,SFMono-Regular,&quot;SF Mono&quot;,Menlo,Consolas,&quot;Liberation Mono&quot;,monospace" font-size="16" xml:space="preserve">aic · edc · httprove · dbops · x-backup</text>
   <text x="486" y="544" fill="#1f2328" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="21" font-weight="500" xml:space="preserve">What broke after it shipped.</text>
-  <text x="486" y="576" fill="#6b6557" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="16.5" xml:space="preserve">Diagnosis is read-only and stops at the fault. Anything that writes makes you type the target's name first.</text>
-  <line x1="72" y1="628" x2="1328" y2="628" stroke="#e3e0d8" stroke-width="1"/>
-  <text x="72" y="662" fill="#1f2328" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="19" xml:space="preserve">each layer stands alone.</text>
-  <text x="298.3" y="662" fill="#6b6557" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="19" xml:space="preserve">take one, or wire them together.</text>
+  <text x="486" y="576" fill="#6b6557" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="16.5" xml:space="preserve">Diagnosis is read-only and stops at the fault. Anything that writes needs an explicit flag, and offers a dry run</text>
+  <text x="486" y="600" fill="#6b6557" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="16.5" xml:space="preserve">first.</text>
+  <line x1="72" y1="652" x2="1328" y2="652" stroke="#e3e0d8" stroke-width="1"/>
+  <text x="72" y="686" fill="#1f2328" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="19" xml:space="preserve">each layer stands alone.</text>
+  <text x="298.3" y="686" fill="#6b6557" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="19" xml:space="preserve">take one, or wire them together.</text>
 </svg>

@@ -16,10 +16,10 @@
   <rect x="925.33" y="48" width="422.67" height="167" rx="10" fill="#ffffff" stroke="#d1d9e0" stroke-width="1.5"/>
   <text x="945.33" y="76" fill="#57606a" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="12.5" font-weight="700" letter-spacing="1.1" xml:space="preserve">OPERATIONS</text>
   <text x="945.33" y="104" fill="#1f2328" font-family="ui-monospace,SFMono-Regular,&quot;SF Mono&quot;,Menlo,Consolas,&quot;Liberation Mono&quot;,monospace" font-size="23" font-weight="600" xml:space="preserve">aic · edc · httprove</text>
-  <text x="945.33" y="133" fill="#1f2328" font-family="ui-monospace,SFMono-Regular,&quot;SF Mono&quot;,Menlo,Consolas,&quot;Liberation Mono&quot;,monospace" font-size="23" font-weight="600" xml:space="preserve">dbops</text>
+  <text x="945.33" y="133" fill="#1f2328" font-family="ui-monospace,SFMono-Regular,&quot;SF Mono&quot;,Menlo,Consolas,&quot;Liberation Mono&quot;,monospace" font-size="23" font-weight="600" xml:space="preserve">dbops · x-backup</text>
   <text x="945.33" y="157" fill="#59636e" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="14.5" xml:space="preserve">What broke after it shipped. Diagnosis is read-only and</text>
-  <text x="945.33" y="179" fill="#59636e" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="14.5" xml:space="preserve">stops at the fault. Anything that writes makes you type</text>
-  <text x="945.33" y="201" fill="#59636e" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="14.5" xml:space="preserve">the target's name first.</text>
+  <text x="945.33" y="179" fill="#59636e" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="14.5" xml:space="preserve">stops at the fault. Anything that writes needs an explicit</text>
+  <text x="945.33" y="201" fill="#59636e" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="14.5" xml:space="preserve">flag, and offers a dry run first.</text>
   <line x1="1136.67" y1="223" x2="1136.67" y2="241" stroke="#d1d9e0" stroke-width="1.5" stroke-dasharray="3 5"/>
   <rect x="52" y="249" width="1296" height="86" rx="10" fill="#ffffff" stroke="#1a7f37" stroke-width="1.5" stroke-dasharray="6 4"/>
   <text x="74" y="277" fill="#1a7f37" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="12.5" font-weight="700" letter-spacing="1.1" xml:space="preserve">CONTEXT  ·  OPT-IN</text>
