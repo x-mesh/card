@@ -74,12 +74,13 @@
       "repos": [
         "aic",
         "edc",
-        "httprove"
+        "httprove",
+        "dbops"
       ],
       "owns": "what broke after it shipped",
       "wired": "standalone · none calls another",
       "lead": "What broke after it shipped.",
-      "body": "Every command read-only: find the fault and stop. Safe on a production host. Each tool runs on its own."
+      "body": "Diagnosis is read-only and stops at the fault. Anything that writes makes you type the target's name first."
     }
   ],
   "diagram": {
@@ -158,6 +159,15 @@
         "layer": "operations",
         "at": [
           0.42,
+          1.55
+        ],
+        "compact": true
+      },
+      {
+        "id": "dbops",
+        "layer": "operations",
+        "at": [
+          0.84,
           1.55
         ],
         "compact": true
