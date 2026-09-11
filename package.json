@@ -1,0 +1,29 @@
+{
+  "name": "@x-mesh/card",
+  "version": "0.1.0",
+  "description": "Render an architecture card as SVG. No browser, no rasterizer, no runtime dependencies.",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "card": "./bin/card.mjs"
+  },
+  "exports": {
+    ".": "./lib/index.mjs"
+  },
+  "files": [
+    "bin",
+    "lib",
+    "templates"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node test/render.test.mjs",
+    "example": "node bin/card.mjs render --config examples/x-mesh.json --all --out-dir examples/out"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/x-mesh/card.git"
+  }
+}

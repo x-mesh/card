@@ -1,0 +1,149 @@
+<h1 align="center">card</h1>
+
+<p align="center">
+  <strong>Render an architecture card as SVG. Then stop.</strong>
+</p>
+
+<p align="center">
+  No browser, no rasterizer, no fonts to ship, no runtime dependencies.<br>
+  A number it cannot measure is a number it refuses to print.
+</p>
+
+---
+
+## What it is
+
+One config file describes a set of layers and how they connect. Four templates
+render that same description four different ways. The output is a single SVG you
+commit, so the picture in your README is a file in your repository rather than a
+request to a service that might be down.
+
+```bash
+npx @x-mesh/card render --config examples/x-mesh.json --template terminal --out layers.svg
+```
+
+## Templates
+
+```console
+$ card list
+terminal     Command output in a terminal window. Dark, monospace, column-aligned.
+graph        Rounded nodes, labelled edges, legend. Light.
+schematic    Engineering drawing. Hairlines, dot grid, title block.
+isometric    Layers as stacked slabs with leader lines. Light.
+```
+
+<p align="center">
+  <img src="./examples/out/terminal.svg" alt="terminal template" width="820">
+</p>
+
+<details>
+<summary>graph · schematic · isometric</summary>
+
+<br>
+
+<p align="center">
+  <img src="./examples/out/graph.svg" alt="graph template" width="820"><br><br>
+  <img src="./examples/out/schematic.svg" alt="schematic template" width="820"><br><br>
+  <img src="./examples/out/isometric.svg" alt="isometric template" width="820">
+</p>
+
+</details>
+
+## Measured, not remembered
+
+A card that says *"runs under 8 of the 10 repositories here"* and reads that
+number from its own config is indistinguishable from one that counted. So it
+counts. Declare the measurement and the renderer performs it against the live
+organization:
+
+```json
+{
+  "id": "version control",
+  "repos": ["gk"],
+  "measure": {
+    "kind": "fileInRepos",
+    "path": ".gk.yaml",
+    "template": "runs under {hit} of the {total} repos here"
+  }
+}
+```
+
+`--offline` does not fall back to a stored value. It fails:
+
+```console
+$ card render --config examples/x-mesh.json --template terminal --offline
+card: version control: has a measured field but --offline was requested.
+      Refusing to print a number that was not measured.
+```
+
+The same rule applies to drift. A repository named in config but absent from the
+organization stops the render instead of quietly disappearing from the picture.
+
+## Usage
+
+```
+card list
+card render --config <file> [--template <name> --out <file>]
+            [--all --out-dir <dir>] [--check] [--offline]
+```
+
+| Flag | Effect |
+| --- | --- |
+| `--all` | render every template into `--out-dir` (default `./out`) |
+| `--check` | exit 1 when the file on disk differs from what would be written |
+| `--offline` | skip the GitHub API; error on any measured field |
+
+`GITHUB_TOKEN` is optional. Without it the unauthenticated rate limit applies.
+
+## Keep it fresh
+
+`--check` is the CI half. Render on a schedule and commit only when the bytes
+change:
+
+```yaml
+- run: npx @x-mesh/card render --config profile/card.json --template terminal --out profile/assets/layers.svg
+  env:
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+- run: |
+    git diff --quiet -- profile/assets/layers.svg && exit 0
+    git config user.name "github-actions[bot]"
+    git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+    git commit -am "chore: refresh card" && git push
+```
+
+## Why a committed file and not a service
+
+A dynamic endpoint looks like the obvious answer and is not. GitHub proxies
+README images through Camo and caches them hard, so a card served from a URL is
+not fresher than one committed weekly — it is the same staleness plus an
+outage mode on your front page. `github-readme-stats` reached 80k stars proving
+this the hard way, and now [recommends the Actions route](https://github.com/anuraghazra/github-readme-stats#deploy-on-your-own-recommended)
+over its own public instance.
+
+A preview server is a different question, and a good one. That is what
+`--all` is for today.
+
+## Design notes
+
+- **Attributes, not `<style>`.** An SVG referenced as an image is a separate
+  document. Attributes survive every sanitizer it may be served through.
+- **Derived column positions.** Hand-tuned offsets are how a column silently
+  starts overlapping the next one the first time a description gets longer.
+- **Declared node positions.** A seven-node diagram does not need a layout
+  engine, and a grid keeps the output byte-identical between runs.
+- **Lanes.** Two edges entering the same side of the same node get separate
+  entry points, because one arrowhead on top of another reads as one edge.
+
+## Known limits
+
+- Text *inside* a cell is measured with a fixed advance width. A very wide
+  fallback monospace font can make a long string reach further than assumed.
+  Column starts hold; a cell's own overflow is not yet detected.
+- Templates that need automatic line wrapping are not here yet. SVG has no
+  reflow, so they need a metrics table first.
+- `terminal` is dark only. It reads on both GitHub themes, but that is a choice
+  and not a default.
+
+## License
+
+MIT

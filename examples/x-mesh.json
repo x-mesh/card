@@ -1,0 +1,81 @@
+{
+  "org": "x-mesh",
+  "title": "x-mesh — layers",
+  "command": "xm layers",
+  "footer": {
+    "lead": "each layer stands alone.",
+    "dim": "take one, or wire them together."
+  },
+  "exclude": ["x-kit", ".github"],
+  "layers": [
+    {
+      "id": "environment",
+      "color": "cyan",
+      "hex": "#0969da",
+      "repos": ["term-mesh"],
+      "owns": "where agents run",
+      "wired": "term-mesh ⇄ xm   contract in code"
+    },
+    {
+      "id": "harness",
+      "color": "purple",
+      "hex": "#8250df",
+      "repos": ["xm"],
+      "owns": "what gets built, and whether it ships",
+      "wired": "gk → xm          finish --gate"
+    },
+    {
+      "id": "context",
+      "color": "green",
+      "hex": "#1a7f37",
+      "repos": ["mem-mesh"],
+      "tag": "(opt-in)",
+      "owns": "what survives the session",
+      "wired": "follows the agent, not the app",
+      "wiredColor": "green"
+    },
+    {
+      "id": "version control",
+      "color": "orange",
+      "hex": "#bc4c00",
+      "repos": ["gk"],
+      "owns": "staying recoverable",
+      "measure": {
+        "kind": "fileInRepos",
+        "path": ".gk.yaml",
+        "template": "runs under {hit} of the {total} repos here"
+      }
+    },
+    {
+      "id": "operations",
+      "color": "dim",
+      "hex": "#57606a",
+      "repos": ["aic", "edc", "httprove"],
+      "owns": "what broke after it shipped",
+      "wired": "every command read-only"
+    }
+  ],
+  "diagram": {
+    "cell": [491, 230],
+    "node": [330, 96],
+    "pad": 44,
+    "nodes": [
+      { "id": "term-mesh", "layer": "environment", "at": [0, 0], "tag": "ENVIRONMENT", "sub": "where agents run" },
+      { "id": "xm", "layer": "harness", "at": [1, 0], "tag": "HARNESS", "sub": "plan · gate · review" },
+      { "id": "gk", "layer": "version control", "at": [2, 0], "tag": "VERSION CONTROL", "sub": "policies · undo" },
+      { "id": "aic", "layer": "operations", "at": [0, 1], "tag": "OPERATIONS", "sub": "shell + SRE agent" },
+      { "id": "mem-mesh", "layer": "context", "at": [1, 1], "tag": "CONTEXT", "sub": "what survives the session", "style": "optional" },
+      { "id": "edc", "layer": "operations", "at": [0, 2], "compact": true },
+      { "id": "httprove", "layer": "operations", "at": [0.42, 2], "compact": true }
+    ],
+    "edges": [
+      { "from": "term-mesh", "to": "xm", "kind": "contract", "label": "telemetry contract", "bidir": true },
+      { "from": "gk", "to": "xm", "kind": "contract", "label": "finish --gate" },
+      { "from": "xm", "to": "mem-mesh", "kind": "contract", "label": "handoff mirror" },
+      { "from": "term-mesh", "to": "mem-mesh", "kind": "optin", "label": "opt-in" },
+      { "from": "aic", "to": "mem-mesh", "kind": "optin", "label": "opt-in · MCP" },
+      { "from": "aic", "to": "edc", "kind": "planned", "label": "planned" },
+      { "from": "aic", "to": "httprove", "kind": "planned", "label": "planned" }
+    ]
+  }
+}

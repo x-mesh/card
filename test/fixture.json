@@ -1,0 +1,21 @@
+{
+  "org": "example",
+  "title": "example — layers",
+  "command": "example layers",
+  "verifyRepos": false,
+  "footer": { "lead": "each layer stands alone.", "dim": "take one, or wire them together." },
+  "layers": [
+    { "id": "top", "hex": "#0969da", "repos": ["alpha"], "owns": "the first thing", "wired": "alpha -> beta" },
+    { "id": "bottom", "hex": "#1a7f37", "repos": ["beta"], "tag": "(opt-in)", "owns": "the second thing", "wired": "optional" }
+  ],
+  "diagram": {
+    "cell": [460, 200],
+    "node": [300, 92],
+    "pad": 40,
+    "nodes": [
+      { "id": "alpha", "layer": "top", "at": [0, 0], "tag": "TOP", "sub": "the first thing" },
+      { "id": "beta", "layer": "bottom", "at": [1, 1], "tag": "BOTTOM", "sub": "the second thing", "style": "optional" }
+    ],
+    "edges": [{ "from": "alpha", "to": "beta", "kind": "optin", "label": "opt-in" }]
+  }
+}
