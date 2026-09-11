@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { widthOf, wrap, fit, SAFETY } from "../lib/text.mjs";
+import { widthOf, wrap, fit, packItems, SAFETY } from "../lib/text.mjs";
 
 test("monospace width is exactly one advance per cell", () => {
   const size = 20;
@@ -56,4 +56,14 @@ test("fit names the cell and both measurements", () => {
 test("full-width characters are measured as full width", () => {
   assert.ok(widthOf("한", 20) > widthOf("a", 20));
   assert.equal(widthOf("한", 20, "mono") > widthOf("a", 20, "mono"), true);
+});
+
+test("packing breaks between items, never after a separator", () => {
+  const lines = packItems(["aic", "edc", "httprove", "dbops"], 220, 23, "mono");
+  assert.ok(lines.length > 1, "this list must wrap at that width");
+  for (const line of lines) {
+    assert.doesNotMatch(line, /·\s*$/, `"${line}" ends on a separator`);
+    assert.doesNotMatch(line, /^\s*·/, `"${line}" starts on a separator`);
+  }
+  assert.equal(lines.join(" · "), "aic · edc · httprove · dbops", "no item lost");
 });

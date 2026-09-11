@@ -5,7 +5,7 @@
 // "how do they fit".
 
 import { document_, text, rect, line, MONO, SANS, round } from "../lib/svg.mjs";
-import { widthOf, wrap, fit } from "../lib/text.mjs";
+import { widthOf, wrap, fit, packItems } from "../lib/text.mjs";
 
 const WIDTH = 1400;
 const PAD_X = 52;
@@ -30,26 +30,35 @@ export function render(model, theme) {
   const bodyX = PAD_X + LAYER_COL + REPO_COL;
   const bodyW = WIDTH - bodyX - PAD_X - 24;
 
-  // Step the repo cell down through a few sizes before giving up. A layer that
-  // names three tools is normal; failing the whole render over it is not.
-  const REPO_SIZES = [24, 22, 20, 18, 16];
+  // A layer that names four tools is normal. Shrinking the type until they fit
+  // on one line is not: the repository name is the thing a reader is here for.
+  // Step down one size, then wrap, and only fail if a single name cannot fit.
+  const REPO_SIZES = [24, 21];
   const repoBox = REPO_COL - 32;
 
   const rows = model.layers.map((l) => {
     const repo = l.repos.join(" · ");
     const repoSize =
       REPO_SIZES.find((s) => widthOf(repo, s, "mono") <= repoBox) ?? REPO_SIZES.at(-1);
-    fit(repo, repoBox, repoSize, "mono", `repo cell for "${l.id}"`);
+    for (const name of l.repos) {
+      fit(name, repoBox, repoSize, "mono", `repo cell for "${l.id}"`);
+    }
+    const repoLines = packItems(l.repos, repoBox, repoSize, "mono");
     const lead = l.lead ?? l.owns ?? "";
     const bodyText = l.body ?? l.wired ?? "";
     const bodyLines = bodyText ? wrap(bodyText, bodyW, SUB) : [];
     return {
       ...l,
       repo,
+      repoLines,
       repoSize,
       lead,
       bodyLines,
-      height: Math.max(72, 34 + 8 + bodyLines.length * 22),
+      height: Math.max(
+        72,
+        34 + 8 + bodyLines.length * 22,
+        24 + repoLines.length * (repoSize + 6),
+      ),
     };
   });
 
@@ -91,14 +100,19 @@ export function render(model, theme) {
         letterSpacing: 1.1,
       }),
     );
-    out.push(
-      text(PAD_X + LAYER_COL + 18, mid + 8, r.repo, {
-        fill: t.ink,
-        size: r.repoSize,
-        family: MONO,
-        weight: 600,
-      }),
-    );
+    const repoStep = r.repoSize + 6;
+    let ry = mid + 8 - ((r.repoLines.length - 1) * repoStep) / 2;
+    for (const ln of r.repoLines) {
+      out.push(
+        text(PAD_X + LAYER_COL + 18, ry, ln, {
+          fill: t.ink,
+          size: r.repoSize,
+          family: MONO,
+          weight: 600,
+        }),
+      );
+      ry += repoStep;
+    }
 
     let ty = y + 32;
     out.push(text(bodyX + 24, ty, r.lead, { fill: t.ink, size: HEAD, family: SANS, weight: 600 }));

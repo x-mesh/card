@@ -31,9 +31,9 @@
   <line x1="72" y1="524" x2="1328" y2="524" stroke="#2d2822" stroke-width="1"/>
   <text x="72" y="546" fill="#6b6557" font-family="ui-monospace,SFMono-Regular,&quot;SF Mono&quot;,Menlo,Consolas,&quot;Liberation Mono&quot;,monospace" font-size="14" xml:space="preserve">05</text>
   <text x="156" y="550" fill="#eae6dd" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="31" letter-spacing="-0.5" xml:space="preserve">operations</text>
-  <text x="156" y="580" fill="#a29a89" font-family="ui-monospace,SFMono-Regular,&quot;SF Mono&quot;,Menlo,Consolas,&quot;Liberation Mono&quot;,monospace" font-size="16" xml:space="preserve">aic · edc · httprove</text>
+  <text x="156" y="580" fill="#a29a89" font-family="ui-monospace,SFMono-Regular,&quot;SF Mono&quot;,Menlo,Consolas,&quot;Liberation Mono&quot;,monospace" font-size="16" xml:space="preserve">aic · edc · httprove · dbops</text>
   <text x="486" y="544" fill="#eae6dd" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="21" font-weight="500" xml:space="preserve">What broke after it shipped.</text>
-  <text x="486" y="576" fill="#a29a89" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="16.5" xml:space="preserve">Every command read-only: find the fault and stop. Safe on a production host. Each tool runs on its own.</text>
+  <text x="486" y="576" fill="#a29a89" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="16.5" xml:space="preserve">Diagnosis is read-only and stops at the fault. Anything that writes makes you type the target's name first.</text>
   <line x1="72" y1="628" x2="1328" y2="628" stroke="#2d2822" stroke-width="1"/>
   <text x="72" y="662" fill="#eae6dd" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="19" xml:space="preserve">each layer stands alone.</text>
   <text x="298.3" y="662" fill="#a29a89" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="19" xml:space="preserve">take one, or wire them together.</text>

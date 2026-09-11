@@ -169,6 +169,10 @@ watching. Preview here, commit the file there.
   engine, and a grid keeps the output byte-identical between runs.
 - **Lanes.** Two edges entering the same side of the same node get separate
   entry points, because one arrowhead on top of another reads as one edge.
+- **Names wrap, they do not shrink.** A layer that lists four tools is normal.
+  Shrinking the type until they fit one line hides the thing a reader came for,
+  so the list breaks between items -- never after a separator -- and the row
+  grows.
 - **A legend of what is drawn, not of what exists.** Only the edge kinds the
   diagram actually uses get a legend row. A row for an unused kind describes the
   vocabulary and sends the reader hunting for an edge that is not there.

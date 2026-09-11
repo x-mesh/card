@@ -5,7 +5,7 @@
 // Says less about direction than `graph` and more about standing than `stack`.
 
 import { document_, text, rect, line, MONO, SANS, round } from "../lib/svg.mjs";
-import { widthOf, wrap, fit } from "../lib/text.mjs";
+import { widthOf, wrap, fit, packItems } from "../lib/text.mjs";
 
 const WIDTH = 1400;
 const PAD_X = 52;
@@ -35,12 +35,23 @@ export function render(model, theme) {
   const cardInner = cardW - 40;
 
   const topRows = tops.map((l) => {
+    // The repository names wrap rather than shrink. They are what a reader came
+    // for, and a layer naming four tools is normal.
+    for (const name of l.repos) {
+      fit(name, cardInner, REPO, "mono", `repo cell for "${l.id}"`);
+    }
     const repo = l.repos.join(" · ");
-    fit(repo, cardInner, REPO, "mono", `repo cell for "${l.id}"`);
     const copy = [l.lead, l.body].filter(Boolean).join(" ") || l.owns || "";
-    return { ...l, repo, lines: wrap(copy, cardInner, BODY) };
+    return {
+      ...l,
+      repo,
+      repoLines: packItems(l.repos, cardInner, REPO, "mono"),
+      lines: wrap(copy, cardInner, BODY),
+    };
   });
-  const cardH = 72 + Math.max(...topRows.map((r) => r.lines.length)) * 22;
+  const repoBlock = Math.max(...topRows.map((r) => r.repoLines.length));
+  const cardH =
+    72 + (repoBlock - 1) * (REPO + 6) + Math.max(...topRows.map((r) => r.lines.length)) * 22;
 
   const railInner = WIDTH - PAD_X * 2 - RAIL_LABEL - 46;
   const railRows = rails.map((l) => {
@@ -79,10 +90,12 @@ export function render(model, theme) {
         letterSpacing: 1.1,
       }),
     );
-    out.push(
-      text(x + 20, PAD_Y + 56, r.repo, { fill: t.ink, size: REPO, family: MONO, weight: 600 }),
-    );
-    let ty = PAD_Y + 80;
+    let ry = PAD_Y + 56;
+    for (const ln of r.repoLines) {
+      out.push(text(x + 20, ry, ln, { fill: t.ink, size: REPO, family: MONO, weight: 600 }));
+      ry += REPO + 6;
+    }
+    let ty = PAD_Y + 80 + (repoBlock - 1) * (REPO + 6);
     for (const ln of r.lines) {
       out.push(text(x + 20, ty, ln, { fill: t.dim, size: BODY, family: SANS }));
       ty += 22;
