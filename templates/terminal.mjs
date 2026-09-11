@@ -17,17 +17,31 @@ const GAP_CHARS = 4;
 export const meta = {
   name: "terminal",
   summary: "Command output in a terminal window. Dark, monospace, column-aligned.",
-  defaultTheme: {
-    bg: "#0b0e14",
-    chrome: "#11151d",
-    rule: "#1c2129",
-    text: "#c9d1d9",
-    bright: "#e6edf3",
-    dim: "#6e7681",
-    cyan: "#56d4dd",
-    purple: "#d2a8ff",
-    green: "#7ee787",
-    orange: "#ffa657",
+  themes: {
+    dark: {
+      bg: "#0b0e14",
+      chrome: "#11151d",
+      rule: "#1c2129",
+      text: "#c9d1d9",
+      bright: "#e6edf3",
+      dim: "#6e7681",
+      cyan: "#56d4dd",
+      purple: "#d2a8ff",
+      green: "#7ee787",
+      orange: "#ffa657",
+    },
+    light: {
+      bg: "#fbfbfa",
+      chrome: "#f0f0ee",
+      rule: "#dedddb",
+      text: "#2f2f2c",
+      bright: "#1f1f1d",
+      dim: "#7d7a75",
+      cyan: "#00807f",
+      purple: "#8250df",
+      green: "#1a7f37",
+      orange: "#bc4c00",
+    },
   },
 };
 
@@ -56,7 +70,7 @@ function layout(rows) {
 }
 
 export function render(model, theme) {
-  const t = { ...meta.defaultTheme, ...theme };
+  const t = { ...meta.themes.dark, ...theme };
   const mono = (o = {}) => ({ ...o, family: MONO, size: o.size ?? FONT });
 
   const rows = model.layers.map((l) => ({

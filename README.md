@@ -20,7 +20,7 @@ request to a service that might be down.
 
 ```bash
 npx @x-mesh/card render --config examples/x-mesh.json --template terminal --out layers.svg
-npx @x-mesh/card serve  --config examples/x-mesh.json     # compare all seven
+npx @x-mesh/card serve  --config examples/x-mesh.json     # compare all seven, light and dark
 ```
 
 ## Templates
@@ -37,7 +37,10 @@ editorial    Numbered entries, no boxes. Quietest, carries no connections.
 ```
 
 <p align="center">
-  <img src="./examples/out/terminal.svg" alt="terminal template" width="820">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./examples/out/terminal.dark.svg">
+    <img src="./examples/out/terminal.svg" alt="terminal template" width="820">
+  </picture>
 </p>
 
 <details>
@@ -55,6 +58,25 @@ editorial    Numbered entries, no boxes. Quietest, carries no connections.
 </p>
 
 </details>
+
+## Two variants, one drawing
+
+Every template declares a light and a dark palette, so a card does not become a
+white slab the moment a reader has GitHub in dark mode. Only colour changes
+between them; geometry that moved with the theme would be two drawings to keep
+in step instead of one.
+
+```bash
+card render --config card.json --template graph --out graph.svg
+card render --config card.json --template graph --dark --out graph.dark.svg
+```
+
+```markdown
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="graph.dark.svg">
+  <img src="graph.svg" alt="...">
+</picture>
+```
 
 ## Measured, not remembered
 
@@ -91,13 +113,14 @@ organization stops the render instead of quietly disappearing from the picture.
 ```
 card list
 card render --config <file> [--template <name> --out <file>]
-            [--all --out-dir <dir>] [--check] [--offline]
+            [--all --out-dir <dir>] [--dark] [--check] [--offline]
 card serve  --config <file> [--port <n>]
 ```
 
 | Flag | Effect |
 | --- | --- |
-| `--all` | render every template into `--out-dir` (default `./out`) |
+| `--all` | render every template, both variants, into `--out-dir` (default `./out`) |
+| `--dark` | render the dark variant; light is the default |
 | `--check` | exit 1 when the file on disk differs from what would be written |
 | `--offline` | skip the GitHub API; error on any measured field |
 | `--port` | preview port, default 8787 |
@@ -157,8 +180,6 @@ watching. Preview here, commit the file there.
 - Widths are estimated, not measured against the viewer's actual font. The
   safety margin covers the faces a system stack normally resolves to; a font
   substantially wider than Helvetica can still overflow.
-- `terminal` is dark only. It reads on both GitHub themes, but that is a choice
-  and not a default.
 - `card serve` is local only, and meant to stay that way. It is for choosing a
   template, not for serving one into a README.
 

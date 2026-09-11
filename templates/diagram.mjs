@@ -24,14 +24,8 @@ import {
 
 const EDGE_KINDS = ["contract", "optin", "planned"];
 
-const SKINS = {
+const BASE = {
   graph: {
-    bg: "#ffffff",
-    ink: "#1f2328",
-    dim: "#59636e",
-    faint: "#8c959f",
-    border: "#d1d9e0",
-    accent: "#1a7f37",
     family: SANS,
     labelFamily: SANS,
     radius: 10,
@@ -46,12 +40,6 @@ const SKINS = {
     labelSize: 13,
   },
   schematic: {
-    bg: "#fbfbf9",
-    ink: "#24292f",
-    dim: "#8b949e",
-    faint: "#8b949e",
-    border: "#24292f",
-    accent: "#0550ae",
     family: MONO,
     labelFamily: MONO,
     radius: 0,
@@ -64,6 +52,19 @@ const SKINS = {
     repoSize: 21,
     subSize: 11,
     labelSize: 10,
+  },
+};
+
+// Only colour differs between variants. Geometry that changed with the theme
+// would mean two drawings to keep in step instead of one.
+const PALETTE = {
+  graph: {
+    light: { bg: "#ffffff", nodeFill: "#ffffff", panel: "#ffffff", ink: "#1f2328", dim: "#59636e", faint: "#8c959f", border: "#d1d9e0", accent: "#1a7f37", dot: "#d8d8d2" },
+    dark: { bg: "#0d1117", nodeFill: "#161b22", panel: "#161b22", ink: "#e6edf3", dim: "#8b949e", faint: "#6e7681", border: "#30363d", accent: "#3fb950", dot: "#21262d" },
+  },
+  schematic: {
+    light: { bg: "#fbfbf9", nodeFill: "#ffffff", panel: "#ffffff", ink: "#24292f", dim: "#8b949e", faint: "#8b949e", border: "#24292f", accent: "#0550ae", dot: "#d8d8d2" },
+    dark: { bg: "#0d1117", nodeFill: "#0d1117", panel: "#0d1117", ink: "#adbac7", dim: "#768390", faint: "#768390", border: "#adbac7", accent: "#539bf5", dot: "#21262d" },
   },
 };
 
@@ -122,7 +123,7 @@ function node(box, n, s, colorOf) {
   out.push(
     rect(box.x, box.y, box.w, box.h, {
       rx: s.radius,
-      fill: "#fff",
+      fill: s.nodeFill,
       stroke: optional ? color : s.border,
       "stroke-width": s.strokeWidth,
       "stroke-dasharray": optional ? "6 4" : undefined,
@@ -164,7 +165,8 @@ function node(box, n, s, colorOf) {
 }
 
 export function build(model, skinName, theme = {}) {
-  const s = { ...SKINS[skinName], ...theme, name: skinName };
+  const variant = theme.variant === "dark" ? "dark" : "light";
+  const s = { ...BASE[skinName], ...PALETTE[skinName][variant], ...theme, name: skinName };
   const d = model.diagram;
   if (!d) throw new Error(`template "${skinName}" needs a "diagram" block in config`);
 
@@ -200,7 +202,7 @@ export function build(model, skinName, theme = {}) {
 
   if (s.grid) {
     body.push(
-      `<pattern id="g" width="16" height="16" patternUnits="userSpaceOnUse"><circle cx="0.5" cy="0.5" r="0.6" fill="#d8d8d2"/></pattern>`,
+      `<pattern id="g" width="16" height="16" patternUnits="userSpaceOnUse"><circle cx="0.5" cy="0.5" r="0.6" fill="${s.dot}"/></pattern>`,
       rect(0, 0, width, height, { fill: "url(#g)" }),
     );
   }
@@ -273,7 +275,7 @@ export function build(model, skinName, theme = {}) {
   // spelled out rather than left to the reader.
   const lg = [];
   if (s.titleBlock) {
-    lg.push(rect(0, 0, legendW, legendH, { fill: "#fff", stroke: s.ink, "stroke-width": 1 }));
+    lg.push(rect(0, 0, legendW, legendH, { fill: s.panel, stroke: s.ink, "stroke-width": 1 }));
     lg.push(line(0, 38, legendW, 38, { stroke: s.ink, "stroke-width": 1 }));
     lg.push(line(330, 0, 330, 38, { stroke: s.ink, "stroke-width": 1 }));
     lg.push(
@@ -354,11 +356,19 @@ export function build(model, skinName, theme = {}) {
 }
 
 export const graph = {
-  meta: { name: "graph", summary: "Rounded nodes, labelled edges, legend. Light." },
+  meta: {
+    name: "graph",
+    summary: "Rounded nodes, labelled edges, legend.",
+    themes: { light: PALETTE.graph.light, dark: PALETTE.graph.dark },
+  },
   render: (model, theme) => build(model, "graph", theme),
 };
 
 export const schematic = {
-  meta: { name: "schematic", summary: "Engineering drawing. Hairlines, dot grid, title block." },
+  meta: {
+    name: "schematic",
+    summary: "Engineering drawing. Hairlines, dot grid, title block.",
+    themes: { light: PALETTE.schematic.light, dark: PALETTE.schematic.dark },
+  },
   render: (model, theme) => build(model, "schematic", theme),
 };

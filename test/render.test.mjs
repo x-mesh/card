@@ -3,30 +3,70 @@ import assert from "node:assert/strict";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { loadConfig, resolveModel } from "../lib/model.mjs";
-import { TEMPLATES, renderCard } from "../templates/index.mjs";
+import { TEMPLATES, VARIANTS, renderCard } from "../templates/index.mjs";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const FIXTURE = resolve(HERE, "fixture.json");
 
 const model = async () => resolveModel(await loadConfig(FIXTURE), { offline: true });
 
-test("every template renders a well-formed svg", async () => {
+test("every template renders a well-formed svg in both variants", async () => {
   const m = await model();
   for (const name of Object.keys(TEMPLATES)) {
-    const svg = renderCard(m, name);
+    for (const variant of VARIANTS) {
+    const svg = renderCard(m, name, variant);
     assert.match(svg, /^<svg xmlns="http:\/\/www\.w3\.org\/2000\/svg"/, `${name}: svg root`);
     assert.match(svg, /<\/svg>\n$/, `${name}: closed`);
     assert.equal(svg.includes("NaN"), false, `${name}: no NaN coordinates`);
     assert.equal(svg.includes("undefined"), false, `${name}: no undefined attributes`);
     assert.equal(svg.includes("<style"), false, `${name}: presentation must ride on attributes`);
+    }
   }
 });
 
 test("output is byte-identical between runs", async () => {
   const m = await model();
   for (const name of Object.keys(TEMPLATES)) {
-    assert.equal(renderCard(m, name), renderCard(m, name), `${name}: deterministic`);
+    for (const variant of VARIANTS) {
+      assert.equal(
+        renderCard(m, name, variant),
+        renderCard(m, name, variant),
+        `${name}/${variant}: deterministic`,
+      );
+    }
   }
+});
+
+test("light and dark actually differ, and neither is the other's background", async () => {
+  const m = await model();
+  for (const name of Object.keys(TEMPLATES)) {
+    const light = renderCard(m, name, "light");
+    const dark = renderCard(m, name, "dark");
+    assert.notEqual(light, dark, `${name}: dark is the light card`);
+
+    // The first rect is the sheet. A "dark" card on a white sheet is the bug
+    // this whole variant exists to prevent.
+    const sheet = (svg) => svg.match(/<rect [^>]*fill="(#[0-9a-f]{6})"/)[1];
+    const lum = (hex) => {
+      const n = parseInt(hex.slice(1), 16);
+      return (((n >> 16) & 255) * 0.299 + ((n >> 8) & 255) * 0.587 + (n & 255) * 0.114) / 255;
+    };
+    assert.ok(lum(sheet(light)) > 0.5, `${name}: light sheet is ${sheet(light)}`);
+    assert.ok(lum(sheet(dark)) < 0.5, `${name}: dark sheet is ${sheet(dark)}`);
+  }
+});
+
+test("every template declares both variants", () => {
+  for (const [name, tpl] of Object.entries(TEMPLATES)) {
+    for (const variant of VARIANTS) {
+      assert.ok(tpl.meta.themes?.[variant], `${name}: no ${variant} theme`);
+    }
+  }
+});
+
+test("an unknown variant names the ones that exist", async () => {
+  const m = await model();
+  assert.throws(() => renderCard(m, "stack", "sepia"), /available: light, dark/);
 });
 
 test("markup in content is escaped, not emitted", async () => {
@@ -64,10 +104,14 @@ test("no template falls back to the default ink", async () => {
 });
 
 test("terminal draws its foreground on its background", async () => {
-  const svg = renderCard(await model(), "terminal");
-  assert.match(svg, /fill="#0b0e14"/, "background");
-  assert.match(svg, /fill="#e6edf3"/, "bright text");
-  assert.match(svg, /fill="#6e7681"/, "dim text");
+  const m = await model();
+  const dark = renderCard(m, "terminal", "dark");
+  assert.match(dark, /fill="#0b0e14"/, "dark background");
+  assert.match(dark, /fill="#e6edf3"/, "dark bright text");
+
+  const light = renderCard(m, "terminal", "light");
+  assert.match(light, /fill="#fbfbfa"/, "light background");
+  assert.match(light, /fill="#1f1f1d"/, "light bright text");
 });
 
 test("an unknown template names the ones that exist", async () => {

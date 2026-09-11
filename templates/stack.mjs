@@ -19,18 +19,14 @@ const SUB = 15.5;
 export const meta = {
   name: "stack",
   summary: "One band per layer. Fastest to read, carries no connections.",
-  defaultTheme: {
-    bg: "#ffffff",
-    band: "#f6f8fa",
-    border: "#d1d9e0",
-    rule: "#eaeef2",
-    ink: "#1f2328",
-    dim: "#59636e",
+  themes: {
+    light: { bg: "#ffffff", band: "#f6f8fa", border: "#d1d9e0", rule: "#eaeef2", ink: "#1f2328", dim: "#59636e" },
+    dark: { bg: "#0d1117", band: "#161b22", border: "#30363d", rule: "#21262d", ink: "#e6edf3", dim: "#8b949e" },
   },
 };
 
 export function render(model, theme) {
-  const t = { ...meta.defaultTheme, ...theme };
+  const t = { ...meta.themes.light, ...theme };
   const bodyX = PAD_X + LAYER_COL + REPO_COL;
   const bodyW = WIDTH - bodyX - PAD_X - 24;
 

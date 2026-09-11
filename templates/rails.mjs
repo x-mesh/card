@@ -19,17 +19,14 @@ const RAIL_LABEL = 236;
 export const meta = {
   name: "rails",
   summary: "Independent parts on top, shared rails underneath. Light.",
-  defaultTheme: {
-    bg: "#ffffff",
-    band: "#f6f8fa",
-    border: "#d1d9e0",
-    ink: "#1f2328",
-    dim: "#59636e",
+  themes: {
+    light: { bg: "#ffffff", band: "#f6f8fa", border: "#d1d9e0", ink: "#1f2328", dim: "#59636e" },
+    dark: { bg: "#0d1117", band: "#161b22", border: "#30363d", ink: "#e6edf3", dim: "#8b949e" },
   },
 };
 
 export function render(model, theme) {
-  const t = { ...meta.defaultTheme, ...theme };
+  const t = { ...meta.themes.light, ...theme };
   const tops = model.layers.filter((l) => !l.rail);
   const rails = model.layers.filter((l) => l.rail);
   if (!tops.length) throw new Error('rails: every layer is marked "rail"; nothing left on top');

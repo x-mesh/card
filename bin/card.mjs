@@ -11,20 +11,21 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { loadConfig, resolveModel } from "../lib/model.mjs";
-import { TEMPLATES, renderCard } from "../templates/index.mjs";
+import { TEMPLATES, VARIANTS, renderCard } from "../templates/index.mjs";
 
 const USAGE = `card — render an architecture card as SVG
 
   card list
   card render --config <file> [--template <name> --out <file>]
-              [--all --out-dir <dir>] [--check] [--offline]
+              [--all --out-dir <dir>] [--dark] [--check] [--offline]
   card serve  --config <file> [--port <n>]
 
   --config <file>    card config (required for render)
   --template <name>  ${Object.keys(TEMPLATES).join(" | ")}
   --out <file>       output path
-  --all              render every template
+  --all              render every template in both variants
   --out-dir <dir>    directory for --all (default: ./out)
+  --dark             render the dark variant (default: light)
   --check            exit 1 if the file on disk differs from what would be written
   --offline          skip the GitHub API; errors on any measured field
   --port <n>         preview port (default 8787)
@@ -105,12 +106,16 @@ try {
   const model = await resolveModel(cfg, { offline: Boolean(flags.offline) });
 
   const names = flags.all ? Object.keys(TEMPLATES) : [flags.template];
+  const variants = flags.all ? VARIANTS : [flags.dark ? "dark" : "light"];
   for (const name of names) {
-    const svg = renderCard(model, name, cfg.theme?.[name]);
-    const out = flags.all
-      ? join(flags["out-dir"] ?? "out", `${name}.svg`)
-      : (flags.out ?? `${name}.svg`);
-    ok = (await writeOrCheck(out, svg, Boolean(flags.check))) && ok;
+    for (const variant of variants) {
+      const svg = renderCard(model, name, variant, cfg.theme?.[name]);
+      const suffix = variant === "dark" ? ".dark" : "";
+      const out = flags.all
+        ? join(flags["out-dir"] ?? "out", `${name}${suffix}.svg`)
+        : (flags.out ?? `${name}${suffix}.svg`);
+      ok = (await writeOrCheck(out, svg, Boolean(flags.check))) && ok;
+    }
   }
 } catch (err) {
   fail(err.message);

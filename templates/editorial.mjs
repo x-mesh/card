@@ -18,17 +18,14 @@ const BODY = 16.5;
 export const meta = {
   name: "editorial",
   summary: "Numbered entries, no boxes. Quietest, carries no connections.",
-  defaultTheme: {
-    bg: "#faf9f7",
-    ink: "#1f2328",
-    dim: "#6b6557",
-    faint: "#b9b3a3",
-    rule: "#e3e0d8",
+  themes: {
+    light: { bg: "#faf9f7", ink: "#1f2328", dim: "#6b6557", faint: "#b9b3a3", rule: "#e3e0d8" },
+    dark: { bg: "#14120f", ink: "#eae6dd", dim: "#a29a89", faint: "#6b6557", rule: "#2d2822" },
   },
 };
 
 export function render(model, theme) {
-  const t = { ...meta.defaultTheme, ...theme };
+  const t = { ...meta.themes.light, ...theme };
   const bodyX = PAD_X + NUM_COL + GUTTER + NAME_COL + GUTTER;
   const bodyW = WIDTH - bodyX - PAD_X;
 

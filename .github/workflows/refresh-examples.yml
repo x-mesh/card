@@ -1,7 +1,8 @@
 name: refresh examples
 
 # The x-mesh card reports a measured number, so it has to be re-measured
-# rather than remembered.
+# rather than remembered. --all covers both variants, so the dark examples
+# cannot drift away from the light ones.
 
 on:
   schedule:
