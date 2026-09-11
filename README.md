@@ -30,6 +30,9 @@ terminal     Command output in a terminal window. Dark, monospace, column-aligne
 graph        Rounded nodes, labelled edges, legend. Light.
 schematic    Engineering drawing. Hairlines, dot grid, title block.
 isometric    Layers as stacked slabs with leader lines. Light.
+stack        One band per layer. Fastest to read, carries no connections.
+rails        Independent parts on top, shared rails underneath. Light.
+editorial    Numbered entries, no boxes. Quietest, carries no connections.
 ```
 
 <p align="center">
@@ -37,14 +40,17 @@ isometric    Layers as stacked slabs with leader lines. Light.
 </p>
 
 <details>
-<summary>graph · schematic · isometric</summary>
+<summary>graph · schematic · isometric · stack · rails · editorial</summary>
 
 <br>
 
 <p align="center">
   <img src="./examples/out/graph.svg" alt="graph template" width="820"><br><br>
   <img src="./examples/out/schematic.svg" alt="schematic template" width="820"><br><br>
-  <img src="./examples/out/isometric.svg" alt="isometric template" width="820">
+  <img src="./examples/out/isometric.svg" alt="isometric template" width="820"><br><br>
+  <img src="./examples/out/stack.svg" alt="stack template" width="820"><br><br>
+  <img src="./examples/out/rails.svg" alt="rails template" width="820"><br><br>
+  <img src="./examples/out/editorial.svg" alt="editorial template" width="820">
 </p>
 
 </details>
@@ -133,16 +139,21 @@ A preview server is a different question, and a good one. That is what
   engine, and a grid keeps the output byte-identical between runs.
 - **Lanes.** Two edges entering the same side of the same node get separate
   entry points, because one arrowhead on top of another reads as one edge.
+- **Wrapping that admits what it does not know.** SVG has no reflow, so a
+  paragraph has to be broken before it is written, in a font the viewer picks.
+  Proportional text is measured against Helvetica advance widths and inflated
+  by a safety margin, so a wider fallback face still fits the box. A word that
+  cannot fit its column at all raises, naming the word and both measurements.
 
 ## Known limits
 
-- Text *inside* a cell is measured with a fixed advance width. A very wide
-  fallback monospace font can make a long string reach further than assumed.
-  Column starts hold; a cell's own overflow is not yet detected.
-- Templates that need automatic line wrapping are not here yet. SVG has no
-  reflow, so they need a metrics table first.
+- Widths are estimated, not measured against the viewer's actual font. The
+  safety margin covers the faces a system stack normally resolves to; a font
+  substantially wider than Helvetica can still overflow.
 - `terminal` is dark only. It reads on both GitHub themes, but that is a choice
   and not a default.
+- There is no preview server yet. `--all` renders the set so you can compare
+  them side by side, which is what picking a template actually needs.
 
 ## License
 

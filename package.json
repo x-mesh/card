@@ -19,7 +19,7 @@
     "node": ">=20"
   },
   "scripts": {
-    "test": "node test/render.test.mjs",
+    "test": "node --test test/*.test.mjs",
     "example": "node bin/card.mjs render --config examples/x-mesh.json --all --out-dir examples/out"
   },
   "repository": {

@@ -6,76 +6,207 @@
     "lead": "each layer stands alone.",
     "dim": "take one, or wire them together."
   },
-  "exclude": ["x-kit", ".github"],
+  "exclude": [
+    "x-kit",
+    ".github"
+  ],
   "layers": [
     {
       "id": "environment",
       "color": "cyan",
       "hex": "#0969da",
-      "repos": ["term-mesh"],
+      "repos": [
+        "term-mesh"
+      ],
       "owns": "where agents run",
-      "wired": "term-mesh ⇄ xm   contract in code"
+      "wired": "term-mesh ⇄ xm   contract in code",
+      "lead": "Where agents run.",
+      "body": "A team of them in parallel, each in its own sandboxed worktree, local or over SSH."
     },
     {
       "id": "harness",
       "color": "purple",
       "hex": "#8250df",
-      "repos": ["xm"],
+      "repos": [
+        "xm"
+      ],
       "owns": "what gets built, and whether it ships",
-      "wired": "gk → xm          finish --gate"
+      "wired": "gk → xm          finish --gate",
+      "lead": "What gets built, and whether it ships.",
+      "body": "Repository-grounded plans, the smallest sufficient change, a cross-vendor panel that gates the result."
     },
     {
       "id": "context",
       "color": "green",
       "hex": "#1a7f37",
-      "repos": ["mem-mesh"],
+      "repos": [
+        "mem-mesh"
+      ],
       "tag": "(opt-in)",
       "owns": "what survives the session",
       "wired": "follows the agent, not the app",
-      "wiredColor": "green"
+      "wiredColor": "green",
+      "lead": "What survives the session.",
+      "body": "It attaches at the agent, not at the app, so any environment above picks it up. Nothing here requires it.",
+      "rail": true
     },
     {
       "id": "version control",
       "color": "orange",
       "hex": "#bc4c00",
-      "repos": ["gk"],
+      "repos": [
+        "gk"
+      ],
       "owns": "staying recoverable",
       "measure": {
         "kind": "fileInRepos",
         "path": ".gk.yaml",
         "template": "runs under {hit} of the {total} repos here"
-      }
+      },
+      "lead": "Staying recoverable.",
+      "body": "Reflog-backed undo, time-machine restore, policies as code.",
+      "rail": true
     },
     {
       "id": "operations",
       "color": "dim",
       "hex": "#57606a",
-      "repos": ["aic", "edc", "httprove"],
+      "repos": [
+        "aic",
+        "edc",
+        "httprove"
+      ],
       "owns": "what broke after it shipped",
-      "wired": "every command read-only"
+      "wired": "every command read-only",
+      "lead": "What broke after it shipped.",
+      "body": "Every command read-only: find the fault and stop. Safe on a production host."
     }
   ],
   "diagram": {
-    "cell": [491, 230],
-    "node": [330, 96],
+    "cell": [
+      491,
+      230
+    ],
+    "node": [
+      330,
+      96
+    ],
     "pad": 44,
     "nodes": [
-      { "id": "term-mesh", "layer": "environment", "at": [0, 0], "tag": "ENVIRONMENT", "sub": "where agents run" },
-      { "id": "xm", "layer": "harness", "at": [1, 0], "tag": "HARNESS", "sub": "plan · gate · review" },
-      { "id": "gk", "layer": "version control", "at": [2, 0], "tag": "VERSION CONTROL", "sub": "policies · undo" },
-      { "id": "aic", "layer": "operations", "at": [0, 1], "tag": "OPERATIONS", "sub": "shell + SRE agent" },
-      { "id": "mem-mesh", "layer": "context", "at": [1, 1], "tag": "CONTEXT", "sub": "what survives the session", "style": "optional" },
-      { "id": "edc", "layer": "operations", "at": [0, 2], "compact": true },
-      { "id": "httprove", "layer": "operations", "at": [0.42, 2], "compact": true }
+      {
+        "id": "term-mesh",
+        "layer": "environment",
+        "at": [
+          0,
+          0
+        ],
+        "tag": "ENVIRONMENT",
+        "sub": "where agents run"
+      },
+      {
+        "id": "xm",
+        "layer": "harness",
+        "at": [
+          1,
+          0
+        ],
+        "tag": "HARNESS",
+        "sub": "plan · gate · review"
+      },
+      {
+        "id": "gk",
+        "layer": "version control",
+        "at": [
+          2,
+          0
+        ],
+        "tag": "VERSION CONTROL",
+        "sub": "policies · undo"
+      },
+      {
+        "id": "aic",
+        "layer": "operations",
+        "at": [
+          0,
+          1
+        ],
+        "tag": "OPERATIONS",
+        "sub": "shell + SRE agent"
+      },
+      {
+        "id": "mem-mesh",
+        "layer": "context",
+        "at": [
+          1,
+          1
+        ],
+        "tag": "CONTEXT",
+        "sub": "what survives the session",
+        "style": "optional"
+      },
+      {
+        "id": "edc",
+        "layer": "operations",
+        "at": [
+          0,
+          2
+        ],
+        "compact": true
+      },
+      {
+        "id": "httprove",
+        "layer": "operations",
+        "at": [
+          0.42,
+          2
+        ],
+        "compact": true
+      }
     ],
     "edges": [
-      { "from": "term-mesh", "to": "xm", "kind": "contract", "label": "telemetry contract", "bidir": true },
-      { "from": "gk", "to": "xm", "kind": "contract", "label": "finish --gate" },
-      { "from": "xm", "to": "mem-mesh", "kind": "contract", "label": "handoff mirror" },
-      { "from": "term-mesh", "to": "mem-mesh", "kind": "optin", "label": "opt-in" },
-      { "from": "aic", "to": "mem-mesh", "kind": "optin", "label": "opt-in · MCP" },
-      { "from": "aic", "to": "edc", "kind": "planned", "label": "planned" },
-      { "from": "aic", "to": "httprove", "kind": "planned", "label": "planned" }
+      {
+        "from": "term-mesh",
+        "to": "xm",
+        "kind": "contract",
+        "label": "telemetry contract",
+        "bidir": true
+      },
+      {
+        "from": "gk",
+        "to": "xm",
+        "kind": "contract",
+        "label": "finish --gate"
+      },
+      {
+        "from": "xm",
+        "to": "mem-mesh",
+        "kind": "contract",
+        "label": "handoff mirror"
+      },
+      {
+        "from": "term-mesh",
+        "to": "mem-mesh",
+        "kind": "optin",
+        "label": "opt-in"
+      },
+      {
+        "from": "aic",
+        "to": "mem-mesh",
+        "kind": "optin",
+        "label": "opt-in · MCP"
+      },
+      {
+        "from": "aic",
+        "to": "edc",
+        "kind": "planned",
+        "label": "planned"
+      },
+      {
+        "from": "aic",
+        "to": "httprove",
+        "kind": "planned",
+        "label": "planned"
+      }
     ]
   }
 }

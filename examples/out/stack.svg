@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="502" viewBox="0 0 1400 502" role="img" aria-label="x-mesh — layers — stack">
+  <rect x="0" y="0" width="1400" height="530" fill="#ffffff"/>
+  <rect x="52" y="48" width="1296" height="72" rx="10" fill="#ffffff" stroke="#d1d9e0" stroke-width="1.5"/>
+  <rect x="53" y="49" width="236" height="70" fill="#f6f8fa"/>
+  <rect x="53" y="49" width="8" height="70" fill="#0969da"/>
+  <line x1="288" y1="48" x2="288" y2="120" stroke="#eaeef2" stroke-width="1.5"/>
+  <line x1="560" y1="48" x2="560" y2="120" stroke="#eaeef2" stroke-width="1.5"/>
+  <text x="72" y="89" fill="#0969da" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="15" font-weight="700" letter-spacing="1.1" xml:space="preserve">ENVIRONMENT</text>
+  <text x="306" y="92" fill="#1f2328" font-family="ui-monospace,SFMono-Regular,&quot;SF Mono&quot;,Menlo,Consolas,&quot;Liberation Mono&quot;,monospace" font-size="24" font-weight="600" xml:space="preserve">term-mesh</text>
+  <text x="584" y="80" fill="#1f2328" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="19" font-weight="600" xml:space="preserve">Where agents run.</text>
+  <text x="584" y="104" fill="#59636e" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="15.5" xml:space="preserve">A team of them in parallel, each in its own sandboxed worktree, local or over SSH.</text>
+  <rect x="52" y="130" width="1296" height="72" rx="10" fill="#ffffff" stroke="#d1d9e0" stroke-width="1.5"/>
+  <rect x="53" y="131" width="236" height="70" fill="#f6f8fa"/>
+  <rect x="53" y="131" width="8" height="70" fill="#8250df"/>
+  <line x1="288" y1="130" x2="288" y2="202" stroke="#eaeef2" stroke-width="1.5"/>
+  <line x1="560" y1="130" x2="560" y2="202" stroke="#eaeef2" stroke-width="1.5"/>
+  <text x="72" y="171" fill="#8250df" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="15" font-weight="700" letter-spacing="1.1" xml:space="preserve">HARNESS</text>
+  <text x="306" y="174" fill="#1f2328" font-family="ui-monospace,SFMono-Regular,&quot;SF Mono&quot;,Menlo,Consolas,&quot;Liberation Mono&quot;,monospace" font-size="24" font-weight="600" xml:space="preserve">xm</text>
+  <text x="584" y="162" fill="#1f2328" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="19" font-weight="600" xml:space="preserve">What gets built, and whether it ships.</text>
+  <text x="584" y="186" fill="#59636e" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="15.5" xml:space="preserve">Repository-grounded plans, the smallest sufficient change, a cross-vendor panel that gates the result.</text>
+  <rect x="52" y="212" width="1296" height="72" rx="10" fill="#ffffff" stroke="#d1d9e0" stroke-width="1.5"/>
+  <rect x="53" y="213" width="236" height="70" fill="#f6f8fa"/>
+  <rect x="53" y="213" width="8" height="70" fill="#1a7f37"/>
+  <line x1="288" y1="212" x2="288" y2="284" stroke="#eaeef2" stroke-width="1.5"/>
+  <line x1="560" y1="212" x2="560" y2="284" stroke="#eaeef2" stroke-width="1.5"/>
+  <text x="72" y="253" fill="#1a7f37" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="15" font-weight="700" letter-spacing="1.1" xml:space="preserve">CONTEXT</text>
+  <text x="306" y="256" fill="#1f2328" font-family="ui-monospace,SFMono-Regular,&quot;SF Mono&quot;,Menlo,Consolas,&quot;Liberation Mono&quot;,monospace" font-size="24" font-weight="600" xml:space="preserve">mem-mesh</text>
+  <text x="584" y="244" fill="#1f2328" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="19" font-weight="600" xml:space="preserve">What survives the session.</text>
+  <text x="584" y="268" fill="#59636e" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="15.5" xml:space="preserve">It attaches at the agent, not at the app, so any environment above picks it up. Nothing here requires it.</text>
+  <rect x="52" y="294" width="1296" height="72" rx="10" fill="#ffffff" stroke="#d1d9e0" stroke-width="1.5"/>
+  <rect x="53" y="295" width="236" height="70" fill="#f6f8fa"/>
+  <rect x="53" y="295" width="8" height="70" fill="#bc4c00"/>
+  <line x1="288" y1="294" x2="288" y2="366" stroke="#eaeef2" stroke-width="1.5"/>
+  <line x1="560" y1="294" x2="560" y2="366" stroke="#eaeef2" stroke-width="1.5"/>
+  <text x="72" y="335" fill="#bc4c00" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="15" font-weight="700" letter-spacing="1.1" xml:space="preserve">VERSION CONTROL</text>
+  <text x="306" y="338" fill="#1f2328" font-family="ui-monospace,SFMono-Regular,&quot;SF Mono&quot;,Menlo,Consolas,&quot;Liberation Mono&quot;,monospace" font-size="24" font-weight="600" xml:space="preserve">gk</text>
+  <text x="584" y="326" fill="#1f2328" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="19" font-weight="600" xml:space="preserve">Staying recoverable.</text>
+  <text x="584" y="350" fill="#59636e" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="15.5" xml:space="preserve">Reflog-backed undo, time-machine restore, policies as code.</text>
+  <rect x="52" y="376" width="1296" height="72" rx="10" fill="#ffffff" stroke="#d1d9e0" stroke-width="1.5"/>
+  <rect x="53" y="377" width="236" height="70" fill="#f6f8fa"/>
+  <rect x="53" y="377" width="8" height="70" fill="#57606a"/>
+  <line x1="288" y1="376" x2="288" y2="448" stroke="#eaeef2" stroke-width="1.5"/>
+  <line x1="560" y1="376" x2="560" y2="448" stroke="#eaeef2" stroke-width="1.5"/>
+  <text x="72" y="417" fill="#57606a" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="15" font-weight="700" letter-spacing="1.1" xml:space="preserve">OPERATIONS</text>
+  <text x="306" y="420" fill="#1f2328" font-family="ui-monospace,SFMono-Regular,&quot;SF Mono&quot;,Menlo,Consolas,&quot;Liberation Mono&quot;,monospace" font-size="18" font-weight="600" xml:space="preserve">aic · edc · httprove</text>
+  <text x="584" y="408" fill="#1f2328" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="19" font-weight="600" xml:space="preserve">What broke after it shipped.</text>
+  <text x="584" y="432" fill="#59636e" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="15.5" xml:space="preserve">Every command read-only: find the fault and stop. Safe on a production host.</text>
+  <text x="52" y="480" fill="#1f2328" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="15.5" font-weight="700" xml:space="preserve">each layer stands alone.</text>
+  <text x="238.08" y="480" fill="#59636e" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="15.5" xml:space="preserve">take one, or wire them together.</text>
+</svg>
