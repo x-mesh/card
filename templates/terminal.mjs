@@ -57,7 +57,7 @@ function layout(rows) {
 
 export function render(model, theme) {
   const t = { ...meta.defaultTheme, ...theme };
-  const mono = (s, o) => ({ ...o, family: MONO, size: o?.size ?? FONT });
+  const mono = (o = {}) => ({ ...o, family: MONO, size: o.size ?? FONT });
 
   const rows = model.layers.map((l) => ({
     layer: l.id,

@@ -47,6 +47,29 @@ test("a measured field refuses to render offline", async () => {
   );
 });
 
+test("no template falls back to the default ink", async () => {
+  // Caught a real bug: a helper took (s, o) and was called with one argument,
+  // so every fill was dropped and the whole terminal card rendered #000 text
+  // on a #0b0e14 background. Invisible output is still valid SVG, so only a
+  // colour assertion notices.
+  const m = await model();
+  for (const name of Object.keys(TEMPLATES)) {
+    const svg = renderCard(m, name);
+    assert.equal(
+      svg.includes('fill="#000"'),
+      false,
+      `${name}: text fell back to the default ink instead of the theme`,
+    );
+  }
+});
+
+test("terminal draws its foreground on its background", async () => {
+  const svg = renderCard(await model(), "terminal");
+  assert.match(svg, /fill="#0b0e14"/, "background");
+  assert.match(svg, /fill="#e6edf3"/, "bright text");
+  assert.match(svg, /fill="#6e7681"/, "dim text");
+});
+
 test("an unknown template names the ones that exist", async () => {
   const m = await model();
   assert.throws(() => renderCard(m, "nope"), /available: /);
