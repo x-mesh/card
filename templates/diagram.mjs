@@ -190,8 +190,12 @@ export function build(model, skinName, theme = {}) {
 
   const maxX = Math.max(...Object.values(boxes).map((b) => b.x + b.w));
   const maxY = Math.max(...Object.values(boxes).map((b) => b.y + b.h));
+  // Only the edge kinds actually drawn get a legend row. A row for a kind the
+  // diagram does not use describes the vocabulary instead of the picture, and
+  // invites the reader to hunt for an edge that is not there.
+  const present = new Set(d.edges.map((e) => e.kind));
+  const legendH = s.titleBlock ? 98 + present.size * 30 : 20 + present.size * 30;
   const legendW = 512;
-  const legendH = s.titleBlock ? 188 : 110;
   const width = Math.max(maxX + pad, d.width ?? 0, legendW + pad * 2);
   const legendX = width - pad - legendW;
   const legendY = maxY + 48;
@@ -300,7 +304,7 @@ export function build(model, skinName, theme = {}) {
     ["contract", "contract in code — required, two-sided"],
     ["optin", "opt-in — lives in the agent's own config"],
     ["planned", "planned — not built"],
-  ];
+  ].filter(([kind]) => present.has(kind));
   legendRows.forEach(([kind, copy], i) => {
     const st = edgeStyle(kind, s);
     const y = (s.titleBlock ? 66 : 18) + i * 30;
@@ -314,9 +318,10 @@ export function build(model, skinName, theme = {}) {
     lg.push(text(84, y + 4, copy, { fill: st.stroke, size: 11.5, family: s.labelFamily }));
   });
   if (s.titleBlock) {
-    lg.push(line(0, 152, legendW, 152, { stroke: s.ink, "stroke-width": 1 }));
+    const footY = 62 + present.size * 30;
+    lg.push(line(0, footY, legendW, footY, { stroke: s.ink, "stroke-width": 1 }));
     lg.push(
-      text(14, 173, (model.footer.lead ?? "").toUpperCase() + " " + (model.footer.dim ?? "").toUpperCase(), {
+      text(14, footY + 21, (model.footer.lead ?? "").toUpperCase() + " " + (model.footer.dim ?? "").toUpperCase(), {
         fill: s.ink,
         size: 12,
         family: MONO,

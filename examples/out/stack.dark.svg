@@ -44,7 +44,7 @@
   <text x="72" y="417" fill="#57606a" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="15" font-weight="700" letter-spacing="1.1" xml:space="preserve">OPERATIONS</text>
   <text x="306" y="420" fill="#e6edf3" font-family="ui-monospace,SFMono-Regular,&quot;SF Mono&quot;,Menlo,Consolas,&quot;Liberation Mono&quot;,monospace" font-size="18" font-weight="600" xml:space="preserve">aic · edc · httprove</text>
   <text x="584" y="408" fill="#e6edf3" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="19" font-weight="600" xml:space="preserve">What broke after it shipped.</text>
-  <text x="584" y="432" fill="#8b949e" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="15.5" xml:space="preserve">Every command read-only: find the fault and stop. Safe on a production host.</text>
+  <text x="584" y="432" fill="#8b949e" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="15.5" xml:space="preserve">Every command read-only: find the fault and stop. Safe on a production host. Each tool runs on its own.</text>
   <text x="52" y="480" fill="#e6edf3" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="15.5" font-weight="700" xml:space="preserve">each layer stands alone.</text>
   <text x="238.08" y="480" fill="#8b949e" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="15.5" xml:space="preserve">take one, or wire them together.</text>
 </svg>

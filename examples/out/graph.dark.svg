@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="771.28" viewBox="0 0 1400 771.28" role="img" aria-label="x-mesh — layers — graph">
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="637.78" viewBox="0 0 1400 637.78" role="img" aria-label="x-mesh — layers — graph">
   <defs><marker id="ac" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0.5 L8.5,4.5 L0,8.5" fill="none" stroke="#e6edf3" stroke-width="1.2"/></marker><marker id="acs" markerWidth="9" markerHeight="9" refX="1" refY="4.5" orient="auto"><path d="M8.5,0.5 L0,4.5 L8.5,8.5" fill="none" stroke="#e6edf3" stroke-width="1.2"/></marker><marker id="ao" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0.5 L8.5,4.5 L0,8.5" fill="none" stroke="#3fb950" stroke-width="1.2"/></marker><marker id="aos" markerWidth="9" markerHeight="9" refX="1" refY="4.5" orient="auto"><path d="M8.5,0.5 L0,4.5 L8.5,8.5" fill="none" stroke="#3fb950" stroke-width="1.2"/></marker><marker id="ap" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0.5 L8.5,4.5 L0,8.5" fill="none" stroke="#6e7681" stroke-width="1.2"/></marker><marker id="aps" markerWidth="9" markerHeight="9" refX="1" refY="4.5" orient="auto"><path d="M8.5,0.5 L0,4.5 L8.5,8.5" fill="none" stroke="#6e7681" stroke-width="1.2"/></marker></defs>
-  <rect x="0" y="0" width="1400" height="771.28" fill="#0d1117"/>
+  <rect x="0" y="0" width="1400" height="637.78" fill="#0d1117"/>
   <rect x="44" y="44" width="330" height="96" rx="10" fill="#161b22" stroke="#30363d" stroke-width="1.6"/>
   <rect x="44" y="58" width="4" height="68" rx="2" fill="#0969da"/>
   <text x="64" y="66" fill="#0969da" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="12.5" font-weight="700" letter-spacing="1.4" xml:space="preserve">ENVIRONMENT</text>
@@ -25,12 +25,12 @@
   <text x="555" y="296" fill="#1a7f37" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="12.5" font-weight="700" letter-spacing="1.4" xml:space="preserve">CONTEXT</text>
   <text x="555" y="324" fill="#e6edf3" font-family="ui-monospace,SFMono-Regular,&quot;SF Mono&quot;,Menlo,Consolas,&quot;Liberation Mono&quot;,monospace" font-size="23" font-weight="600" xml:space="preserve">mem-mesh</text>
   <text x="555" y="346" fill="#8b949e" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="13.5" xml:space="preserve">what survives the session</text>
-  <rect x="44" y="504" width="125.4" height="65.28" rx="10" fill="#161b22" stroke="#30363d" stroke-width="1.6"/>
-  <rect x="44" y="518" width="4" height="37.28" rx="2" fill="#57606a"/>
-  <text x="64" y="540" fill="#e6edf3" font-family="ui-monospace,SFMono-Regular,&quot;SF Mono&quot;,Menlo,Consolas,&quot;Liberation Mono&quot;,monospace" font-size="23" font-weight="600" xml:space="preserve">edc</text>
-  <rect x="250.22" y="504" width="125.4" height="65.28" rx="10" fill="#161b22" stroke="#30363d" stroke-width="1.6"/>
-  <rect x="250.22" y="518" width="4" height="37.28" rx="2" fill="#57606a"/>
-  <text x="270.22" y="540" fill="#e6edf3" font-family="ui-monospace,SFMono-Regular,&quot;SF Mono&quot;,Menlo,Consolas,&quot;Liberation Mono&quot;,monospace" font-size="23" font-weight="600" xml:space="preserve">httprove</text>
+  <rect x="44" y="400.5" width="125.4" height="65.28" rx="10" fill="#161b22" stroke="#30363d" stroke-width="1.6"/>
+  <rect x="44" y="414.5" width="4" height="37.28" rx="2" fill="#57606a"/>
+  <text x="64" y="436.5" fill="#e6edf3" font-family="ui-monospace,SFMono-Regular,&quot;SF Mono&quot;,Menlo,Consolas,&quot;Liberation Mono&quot;,monospace" font-size="23" font-weight="600" xml:space="preserve">edc</text>
+  <rect x="250.22" y="400.5" width="125.4" height="65.28" rx="10" fill="#161b22" stroke="#30363d" stroke-width="1.6"/>
+  <rect x="250.22" y="414.5" width="4" height="37.28" rx="2" fill="#57606a"/>
+  <text x="270.22" y="436.5" fill="#e6edf3" font-family="ui-monospace,SFMono-Regular,&quot;SF Mono&quot;,Menlo,Consolas,&quot;Liberation Mono&quot;,monospace" font-size="23" font-weight="600" xml:space="preserve">httprove</text>
   <path d="M374,76 L527,76" fill="none" stroke="#e6edf3" stroke-width="1.6" marker-end="url(#ac)" marker-start="url(#acs)"/>
   <rect x="376.64" y="51" width="147.72" height="17" fill="#0d1117"/>
   <text x="450.5" y="64" fill="#e6edf3" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="13" text-anchor="middle" xml:space="preserve">telemetry contract</text>
@@ -45,13 +45,7 @@
   <path d="M374,322 L527,322" fill="none" stroke="#3fb950" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#ao)"/>
   <rect x="399.26" y="297" width="102.48" height="17" fill="#0d1117"/>
   <text x="450.5" y="310" fill="#3fb950" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="13" text-anchor="middle" xml:space="preserve">opt-in · MCP</text>
-  <path d="M209,370 L209,412.84 L106.7,412.84 L106.7,496" fill="none" stroke="#6e7681" stroke-width="1.6" stroke-dasharray="1.5 4" marker-end="url(#ap)"/>
-  <rect x="125.46" y="389.84" width="64.78" height="17" fill="#0d1117"/>
-  <text x="157.85" y="402.84" fill="#6e7681" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="13" text-anchor="middle" xml:space="preserve">planned</text>
-  <path d="M209,370 L209,412.84 L312.92,412.84 L312.92,496" fill="none" stroke="#6e7681" stroke-width="1.6" stroke-dasharray="1.5 4" marker-end="url(#ap)"/>
-  <rect x="228.57" y="389.84" width="64.78" height="17" fill="#0d1117"/>
-  <text x="260.96" y="402.84" fill="#6e7681" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="13" text-anchor="middle" xml:space="preserve">planned</text>
-  <g transform="translate(844,617.28)"><line x1="20" y1="18" x2="70" y2="18" stroke="#e6edf3" stroke-width="1.6"/><text x="84" y="22" fill="#e6edf3" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="11.5" xml:space="preserve">contract in code — required, two-sided</text><line x1="20" y1="48" x2="70" y2="48" stroke="#3fb950" stroke-width="1.6" stroke-dasharray="6 4"/><text x="84" y="52" fill="#3fb950" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="11.5" xml:space="preserve">opt-in — lives in the agent's own config</text><line x1="20" y1="78" x2="70" y2="78" stroke="#6e7681" stroke-width="1.6" stroke-dasharray="1.5 4"/><text x="84" y="82" fill="#6e7681" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="11.5" xml:space="preserve">planned — not built</text></g>
-  <text x="44" y="733.28" fill="#e6edf3" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="15.5" font-weight="700" xml:space="preserve">each layer stands alone.</text>
-  <text x="245.6" y="733.28" fill="#8b949e" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="15.5" xml:space="preserve">take one, or wire them together.</text>
+  <g transform="translate(844,513.78)"><line x1="20" y1="18" x2="70" y2="18" stroke="#e6edf3" stroke-width="1.6"/><text x="84" y="22" fill="#e6edf3" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="11.5" xml:space="preserve">contract in code — required, two-sided</text><line x1="20" y1="48" x2="70" y2="48" stroke="#3fb950" stroke-width="1.6" stroke-dasharray="6 4"/><text x="84" y="52" fill="#3fb950" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="11.5" xml:space="preserve">opt-in — lives in the agent's own config</text></g>
+  <text x="44" y="599.78" fill="#e6edf3" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="15.5" font-weight="700" xml:space="preserve">each layer stands alone.</text>
+  <text x="245.6" y="599.78" fill="#8b949e" font-family="-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Helvetica,Arial,sans-serif" font-size="15.5" xml:space="preserve">take one, or wire them together.</text>
 </svg>

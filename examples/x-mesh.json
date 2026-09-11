@@ -77,9 +77,9 @@
         "httprove"
       ],
       "owns": "what broke after it shipped",
-      "wired": "every command read-only",
+      "wired": "standalone · none calls another",
       "lead": "What broke after it shipped.",
-      "body": "Every command read-only: find the fault and stop. Safe on a production host."
+      "body": "Every command read-only: find the fault and stop. Safe on a production host. Each tool runs on its own."
     }
   ],
   "diagram": {
@@ -149,7 +149,7 @@
         "layer": "operations",
         "at": [
           0,
-          2
+          1.55
         ],
         "compact": true
       },
@@ -158,7 +158,7 @@
         "layer": "operations",
         "at": [
           0.42,
-          2
+          1.55
         ],
         "compact": true
       }
@@ -194,18 +194,6 @@
         "to": "mem-mesh",
         "kind": "optin",
         "label": "opt-in · MCP"
-      },
-      {
-        "from": "aic",
-        "to": "edc",
-        "kind": "planned",
-        "label": "planned"
-      },
-      {
-        "from": "aic",
-        "to": "httprove",
-        "kind": "planned",
-        "label": "planned"
       }
     ]
   }

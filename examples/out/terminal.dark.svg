@@ -33,7 +33,7 @@
   <text x="38" y="330.15" fill="#6e7681" font-family="ui-monospace,SFMono-Regular,&quot;SF Mono&quot;,Menlo,Consolas,&quot;Liberation Mono&quot;,monospace" font-size="19" xml:space="preserve">operations</text>
   <text x="255" y="330.15" fill="#e6edf3" font-family="ui-monospace,SFMono-Regular,&quot;SF Mono&quot;,Menlo,Consolas,&quot;Liberation Mono&quot;,monospace" font-size="19" xml:space="preserve">aic edc httprove</text>
   <text x="506" y="330.15" fill="#6e7681" font-family="ui-monospace,SFMono-Regular,&quot;SF Mono&quot;,Menlo,Consolas,&quot;Liberation Mono&quot;,monospace" font-size="19" xml:space="preserve">what broke after it shipped</text>
-  <text x="973" y="330.15" fill="#6e7681" font-family="ui-monospace,SFMono-Regular,&quot;SF Mono&quot;,Menlo,Consolas,&quot;Liberation Mono&quot;,monospace" font-size="19" xml:space="preserve">every command read-only</text>
+  <text x="973" y="330.15" fill="#6e7681" font-family="ui-monospace,SFMono-Regular,&quot;SF Mono&quot;,Menlo,Consolas,&quot;Liberation Mono&quot;,monospace" font-size="19" xml:space="preserve">standalone · none calls another</text>
   <line x1="38" y1="376.65" x2="1349" y2="376.65" stroke="#1c2129" stroke-width="1.5"/>
   <text x="38" y="407.65" fill="#e6edf3" font-family="ui-monospace,SFMono-Regular,&quot;SF Mono&quot;,Menlo,Consolas,&quot;Liberation Mono&quot;,monospace" font-size="19" xml:space="preserve">each layer stands alone.</text>
   <text x="334" y="407.65" fill="#6e7681" font-family="ui-monospace,SFMono-Regular,&quot;SF Mono&quot;,Menlo,Consolas,&quot;Liberation Mono&quot;,monospace" font-size="19" xml:space="preserve">take one, or wire them together.</text>

@@ -169,6 +169,9 @@ watching. Preview here, commit the file there.
   engine, and a grid keeps the output byte-identical between runs.
 - **Lanes.** Two edges entering the same side of the same node get separate
   entry points, because one arrowhead on top of another reads as one edge.
+- **A legend of what is drawn, not of what exists.** Only the edge kinds the
+  diagram actually uses get a legend row. A row for an unused kind describes the
+  vocabulary and sends the reader hunting for an edge that is not there.
 - **Wrapping that admits what it does not know.** SVG has no reflow, so a
   paragraph has to be broken before it is written, in a font the viewer picks.
   Proportional text is measured against Helvetica advance widths and inflated
