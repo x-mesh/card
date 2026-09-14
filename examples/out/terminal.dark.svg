@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1535" height="470" viewBox="0 0 1535 470" role="img" aria-label="x-mesh — layers">
-  <rect x="0" y="0" width="1535" height="470" rx="12" fill="#0b0e14"/>
-  <path d="M0,44 L0,12 A12,12 0 0 1 12,0 L1523,0 A12,12 0 0 1 1535,12 L1535,44 Z" fill="#11151d"/>
-  <line x1="0" y1="44" x2="1535" y2="44" stroke="#1c2129" stroke-width="1"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1547" height="470" viewBox="0 0 1547 470" role="img" aria-label="x-mesh — layers">
+  <rect x="0" y="0" width="1547" height="470" rx="12" fill="#0b0e14"/>
+  <path d="M0,44 L0,12 A12,12 0 0 1 12,0 L1535,0 A12,12 0 0 1 1547,12 L1547,44 Z" fill="#11151d"/>
+  <line x1="0" y1="44" x2="1547" y2="44" stroke="#1c2129" stroke-width="1"/>
   <circle cx="26" cy="22" r="6.5" fill="#ff5f57"/>
   <circle cx="48" cy="22" r="6.5" fill="#febc2e"/>
   <circle cx="70" cy="22" r="6.5" fill="#28c840"/>
@@ -12,7 +12,7 @@
   <text x="255" y="155" fill="#6e7681" font-family="ui-monospace,SFMono-Regular,&quot;SF Mono&quot;,Menlo,Consolas,&quot;Liberation Mono&quot;,monospace" font-size="19" xml:space="preserve">REPO</text>
   <text x="654" y="155" fill="#6e7681" font-family="ui-monospace,SFMono-Regular,&quot;SF Mono&quot;,Menlo,Consolas,&quot;Liberation Mono&quot;,monospace" font-size="19" xml:space="preserve">OWNS</text>
   <text x="1121" y="155" fill="#6e7681" font-family="ui-monospace,SFMono-Regular,&quot;SF Mono&quot;,Menlo,Consolas,&quot;Liberation Mono&quot;,monospace" font-size="19" xml:space="preserve">WIRED TO</text>
-  <line x1="38" y1="172.05" x2="1497" y2="172.05" stroke="#1c2129" stroke-width="1.5"/>
+  <line x1="38" y1="172.05" x2="1509" y2="172.05" stroke="#1c2129" stroke-width="1.5"/>
   <text x="38" y="206.15" fill="#56d4dd" font-family="ui-monospace,SFMono-Regular,&quot;SF Mono&quot;,Menlo,Consolas,&quot;Liberation Mono&quot;,monospace" font-size="19" xml:space="preserve">environment</text>
   <text x="255" y="206.15" fill="#e6edf3" font-family="ui-monospace,SFMono-Regular,&quot;SF Mono&quot;,Menlo,Consolas,&quot;Liberation Mono&quot;,monospace" font-size="19" xml:space="preserve">term-mesh</text>
   <text x="654" y="206.15" fill="#6e7681" font-family="ui-monospace,SFMono-Regular,&quot;SF Mono&quot;,Menlo,Consolas,&quot;Liberation Mono&quot;,monospace" font-size="19" xml:space="preserve">where agents run</text>
@@ -29,12 +29,12 @@
   <text x="38" y="299.15" fill="#ffa657" font-family="ui-monospace,SFMono-Regular,&quot;SF Mono&quot;,Menlo,Consolas,&quot;Liberation Mono&quot;,monospace" font-size="19" xml:space="preserve">version control</text>
   <text x="255" y="299.15" fill="#e6edf3" font-family="ui-monospace,SFMono-Regular,&quot;SF Mono&quot;,Menlo,Consolas,&quot;Liberation Mono&quot;,monospace" font-size="19" xml:space="preserve">gk</text>
   <text x="654" y="299.15" fill="#6e7681" font-family="ui-monospace,SFMono-Regular,&quot;SF Mono&quot;,Menlo,Consolas,&quot;Liberation Mono&quot;,monospace" font-size="19" xml:space="preserve">staying recoverable</text>
-  <text x="1121" y="299.15" fill="#6e7681" font-family="ui-monospace,SFMono-Regular,&quot;SF Mono&quot;,Menlo,Consolas,&quot;Liberation Mono&quot;,monospace" font-size="19" xml:space="preserve">runs under 9 of the 13 repos here</text>
+  <text x="1121" y="299.15" fill="#6e7681" font-family="ui-monospace,SFMono-Regular,&quot;SF Mono&quot;,Menlo,Consolas,&quot;Liberation Mono&quot;,monospace" font-size="19" xml:space="preserve">runs under 10 of the 14 repos here</text>
   <text x="38" y="330.15" fill="#6e7681" font-family="ui-monospace,SFMono-Regular,&quot;SF Mono&quot;,Menlo,Consolas,&quot;Liberation Mono&quot;,monospace" font-size="19" xml:space="preserve">operations</text>
   <text x="255" y="330.15" fill="#e6edf3" font-family="ui-monospace,SFMono-Regular,&quot;SF Mono&quot;,Menlo,Consolas,&quot;Liberation Mono&quot;,monospace" font-size="19" xml:space="preserve">aic edc httprove dbops x-backup</text>
   <text x="654" y="330.15" fill="#6e7681" font-family="ui-monospace,SFMono-Regular,&quot;SF Mono&quot;,Menlo,Consolas,&quot;Liberation Mono&quot;,monospace" font-size="19" xml:space="preserve">what broke after it shipped</text>
   <text x="1121" y="330.15" fill="#6e7681" font-family="ui-monospace,SFMono-Regular,&quot;SF Mono&quot;,Menlo,Consolas,&quot;Liberation Mono&quot;,monospace" font-size="19" xml:space="preserve">standalone · none calls another</text>
-  <line x1="38" y1="376.65" x2="1497" y2="376.65" stroke="#1c2129" stroke-width="1.5"/>
+  <line x1="38" y1="376.65" x2="1509" y2="376.65" stroke="#1c2129" stroke-width="1.5"/>
   <text x="38" y="407.65" fill="#e6edf3" font-family="ui-monospace,SFMono-Regular,&quot;SF Mono&quot;,Menlo,Consolas,&quot;Liberation Mono&quot;,monospace" font-size="19" xml:space="preserve">each layer stands alone.</text>
   <text x="334" y="407.65" fill="#6e7681" font-family="ui-monospace,SFMono-Regular,&quot;SF Mono&quot;,Menlo,Consolas,&quot;Liberation Mono&quot;,monospace" font-size="19" xml:space="preserve">take one, or wire them together.</text>
   <text x="38" y="438.65" fill="#6e7681" font-family="ui-monospace,SFMono-Regular,&quot;SF Mono&quot;,Menlo,Consolas,&quot;Liberation Mono&quot;,monospace" font-size="19" xml:space="preserve">exit 0</text>
